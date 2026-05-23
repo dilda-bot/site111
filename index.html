@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>ЖИРНАЯ ЭСТЕТИКА | Покойо Галерея | Сложный градиентный сайт</title>
-    <meta name="description" content="Абсолютная галерея жира. Информация о покойо, жиробасах и эстетике сытости. Кнопки с переходами на лучшие бургерные ресурсы.">
+    <title>ЖИРНАЯ ЭСТЕТИКА | ПОКОЙО ГАЛЕРЕЯ | МЕГА ЭФФЕКТЫ</title>
     <style>
-        /* ---------- ГЛОБАЛЬНЫЕ СТИЛИ И САМЫЕ СЛОЖНЫЕ ГРАДИЕНТЫ ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -15,31 +13,160 @@
 
         body {
             background: radial-gradient(ellipse at 20% 30%, #0a0602 0%, #020100 100%);
-            font-family: 'Poppins', 'Segoe UI', 'Inter', 'Montserrat', system-ui, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
             color: #fff2df;
             overflow-x: hidden;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="32" viewBox="0 0 28 32"><circle cx="14" cy="14" r="12" fill="%23ffaa44" stroke="%23ff5500" stroke-width="2"/><path d="M14 2 L17 10 L25 10 L19 15 L22 23 L14 18 L6 23 L9 15 L3 10 L11 10 Z" fill="%23ffdd99"/><circle cx="14" cy="14" r="4" fill="%23ff6600"/></svg>') 14 14, auto;
         }
 
-        /* анимированный градиентный фон для секций */
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Жирный след за мышкой */
+        .grease-trail {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            background: radial-gradient(circle, #ffcc66, #ff8800);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.6;
+            filter: blur(3px);
+            animation: trailFade 0.8s ease-out forwards;
         }
 
-        /* супер сложный скроллбар */
+        @keyframes trailFade {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+
+        /* Плавающие бургеры с вращением */
+        .floating-burger {
+            position: fixed;
+            font-size: 3rem;
+            z-index: 0;
+            pointer-events: none;
+            animation: floatBurger linear infinite;
+            opacity: 0.4;
+            filter: drop-shadow(0 0 5px #ffaa44);
+        }
+
+        @keyframes floatBurger {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.4; }
+            90% { opacity: 0.4; }
+            100% { transform: translateY(-20vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Капли жира сверху */
+        .fat-drop {
+            position: fixed;
+            top: -20px;
+            background: radial-gradient(circle, #ffdd88, #ff9933);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            animation: dropFall linear infinite;
+            filter: blur(2px);
+        }
+
+        @keyframes dropFall {
+            0% { transform: translateY(0) scale(0.5); opacity: 0.8; }
+            100% { transform: translateY(100vh) scale(1.2); opacity: 0; }
+        }
+
+        /* Мерцающие звёзды жира */
+        .fat-star {
+            position: fixed;
+            font-size: 1rem;
+            pointer-events: none;
+            animation: starTwinkle 2s ease-in-out infinite;
+            opacity: 0;
+            z-index: 0;
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 0.8; transform: scale(1.2); text-shadow: 0 0 10px #ffaa44; }
+        }
+
+        /* Плавающие калории */
+        .calorie-number {
+            position: fixed;
+            font-weight: bold;
+            font-size: 1.2rem;
+            pointer-events: none;
+            animation: calorieFloat 5s ease-out forwards;
+            z-index: 1;
+            color: #ffaa55;
+            text-shadow: 0 0 5px #ff5500;
+        }
+
+        @keyframes calorieFloat {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-200px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Масляные брызги при клике */
+        .splash {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #ffcc66, #ff8800);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: splashAnim 0.6s ease-out forwards;
+            z-index: 10000;
+        }
+
+        @keyframes splashAnim {
+            0% { transform: scale(0); opacity: 0.8; }
+            100% { transform: scale(4); opacity: 0; }
+        }
+
+        /* Конфетти из бургеров */
+        .burger-confetti {
+            position: fixed;
+            font-size: 1.5rem;
+            pointer-events: none;
+            animation: confettiFall 1.5s ease-out forwards;
+            z-index: 10001;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(300px) rotate(720deg); opacity: 0; }
+        }
+
+        /* Стилизация скролла */
         ::-webkit-scrollbar { width: 12px; }
         ::-webkit-scrollbar-track { background: #1f180e; border-radius: 20px; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #ffaa44, #ff5500); border-radius: 20px; border: 2px solid #3b2a14; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #ffaa44, #ff5500); border-radius: 20px; animation: scrollGlow 1s ease infinite; }
 
-        /* обертка */
+        @keyframes scrollGlow {
+            0%, 100% { background: linear-gradient(135deg, #ffaa44, #ff5500); }
+            50% { background: linear-gradient(135deg, #ffdd88, #ff7733); }
+        }
+
         .fat-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 30px 40px 90px;
+            position: relative;
+            z-index: 2;
         }
 
-        /* хедер с супер градиентом */
+        /* Градиентная рябь при движении мыши */
+        .mouse-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,170,68,0.15), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            transition: transform 0.1s;
+            filter: blur(30px);
+        }
+
         .gradient-header {
             text-align: center;
             padding: 4rem 2rem;
@@ -48,19 +175,35 @@
             border-radius: 90px 30px 90px 30px;
             margin-bottom: 60px;
             border: 1px solid rgba(255, 170, 68, 0.5);
-            box-shadow: 0 30px 45px rgba(0,0,0,0.7), inset 0 1px 4px rgba(255,200,100,0.3);
+            box-shadow: 0 30px 45px rgba(0,0,0,0.7);
+            animation: headerPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes headerPulse {
+            0%, 100% { box-shadow: 0 30px 45px rgba(0,0,0,0.7), inset 0 1px 4px rgba(255,200,100,0.3); }
+            50% { box-shadow: 0 35px 55px rgba(255,170,68,0.3), inset 0 1px 8px rgba(255,200,100,0.6); }
         }
 
         h1 {
             font-size: 5.2rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #ffe6b3, #ffaa44, #ff6633, #ffaa44);
-            background-size: 300% 300%;
-            animation: gradientShift 6s ease infinite;
+            background: linear-gradient(135deg, #ffe6b3, #ffaa44, #ff6633, #ffaa44, #ffe6b3);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite, textGlow 1.5s ease-in-out infinite;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             letter-spacing: -0.02em;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes textGlow {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(255,170,68,0.3)); }
+            50% { filter: drop-shadow(0 0 20px rgba(255,170,68,0.8)); }
         }
 
         .sub-grad {
@@ -70,12 +213,14 @@
             background-clip: text;
             color: transparent;
             font-weight: bold;
-            margin-top: 20px;
-            display: inline-block;
-            padding: 0 20px;
+            animation: subGlow 2s ease infinite;
         }
 
-        /* навигация с кнопками перехода по ссылкам */
+        @keyframes subGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; text-shadow: 0 0 10px #ffaa55; }
+        }
+
         .nav-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -83,6 +228,7 @@
             gap: 28px;
             margin: 45px 0 25px;
         }
+
         .gradient-btn {
             background: linear-gradient(115deg, #3a281a, #5c3f20);
             padding: 14px 32px;
@@ -94,67 +240,126 @@
             box-shadow: 0 10px 0 #2b1c0c;
             position: relative;
             overflow: hidden;
+            animation: btnShimmer 4s ease infinite;
         }
-        .gradient-btn a {
-            text-decoration: none;
-            color: #ffefcf;
-            font-size: 1.1rem;
-            font-weight: 800;
-            display: inline-block;
-            width: 100%;
+
+        @keyframes btnShimmer {
+            0%, 100% { background: linear-gradient(115deg, #3a281a, #5c3f20); }
+            50% { background: linear-gradient(115deg, #5c3f20, #3a281a); }
         }
+
+        .gradient-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,200,100,0.6), transparent);
+            transform: rotate(25deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .gradient-btn:hover::before {
+            opacity: 1;
+            transform: rotate(25deg) translateX(30%);
+        }
+
         .gradient-btn:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.02);
             background: linear-gradient(115deg, #ff9142, #c46a1e);
             box-shadow: 0 15px 0 #2b1c0c;
+            animation: btnVibrate 0.2s ease-in-out infinite;
         }
+
+        @keyframes btnVibrate {
+            0%, 100% { transform: translateY(-5px) scale(1.02) translateX(0); }
+            25% { transform: translateY(-5px) scale(1.02) translateX(-2px); }
+            75% { transform: translateY(-5px) scale(1.02) translateX(2px); }
+        }
+
         .gradient-btn:active {
             transform: translateY(4px);
             box-shadow: 0 6px 0 #2b1c0c;
         }
 
-        /* карточки с фотографиями и информацией */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-            gap: 45px;
-            margin: 70px 0;
+        .gradient-btn a {
+            text-decoration: none;
+            color: #ffefcf;
+            font-size: 1.1rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
         }
+
+        /* Карточки с пружинящей анимацией */
         .fat-card {
             background: radial-gradient(circle at 10% 20%, #2a241a, #100e08);
             border-radius: 50px;
             padding: 30px 25px;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             border: 1px solid rgba(255, 140, 50, 0.6);
             backdrop-filter: blur(2px);
             box-shadow: 0 20px 30px rgba(0,0,0,0.4);
+            opacity: 0;
+            transform: translateY(50px) scale(0.9);
+            animation: cardBounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            animation-fill-mode: forwards;
         }
+
+        @keyframes cardBounceIn {
+            0% { opacity: 0; transform: translateY(50px) scale(0.9); }
+            60% { opacity: 1; transform: translateY(-10px) scale(1.02); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .fat-card:nth-child(1) { animation-delay: 0.1s; }
+        .fat-card:nth-child(2) { animation-delay: 0.2s; }
+        .fat-card:nth-child(3) { animation-delay: 0.3s; }
+        .fat-card:nth-child(4) { animation-delay: 0.4s; }
+
         .fat-card:hover {
-            transform: translateY(-12px);
+            transform: translateY(-12px) rotate(2deg) skewX(-2deg) scale(1.02);
             background: radial-gradient(circle at 30% 40%, #3f3322, #1e180e);
             border-color: #ffaa55;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.6), 0 0 30px rgba(255,170,68,0.4);
         }
+
         .card-image {
             font-size: 5rem;
             text-align: center;
             filter: drop-shadow(4px 8px 0 #2a1e0e);
-            background: linear-gradient(145deg, #ffdd99, #ffaa55);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            transition: all 0.3s;
+            animation: iconFloat 2s ease-in-out infinite;
         }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .fat-card:hover .card-image {
+            transform: scale(1.15) rotate(8deg);
+            filter: drop-shadow(8px 12px 0 #2a1e0e) drop-shadow(0 0 15px #ffaa55);
+        }
+
         .fat-card h3 {
             font-size: 2rem;
             margin: 18px 0 12px;
-            background: linear-gradient(90deg, #ffcc88, #ff9f4a);
+            background: linear-gradient(90deg, #ffcc88, #ff9f4a, #ffcc88);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            animation: titleShine 3s linear infinite;
         }
-        .info-text {
-            margin: 15px 0;
-            line-height: 1.4;
+
+        @keyframes titleShine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
         }
+
         .card-btn {
             background: linear-gradient(95deg, #b4662a, #7a421c);
             border: none;
@@ -163,30 +368,47 @@
             font-weight: bold;
             cursor: pointer;
             margin-top: 15px;
-            transition: 0.1s;
-        }
-        .card-btn a {
-            text-decoration: none;
-            color: #ffefcf;
-        }
-        .card-btn:active {
-            transform: scale(0.96);
+            transition: 0.2s;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* информационная секция с градиентной рамкой */
+        .card-btn::after {
+            content: '🧈';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+        .card-btn:hover::after {
+            right: 15px;
+            opacity: 1;
+        }
+
+        .card-btn:hover {
+            background: linear-gradient(95deg, #ff7733, #b4662a);
+            transform: scale(1.05);
+            padding-right: 45px;
+        }
+
         .info-section {
             background: linear-gradient(125deg, #15100a, #0b0804);
             border-radius: 80px;
             padding: 55px;
             margin: 65px 0;
-            border-left: 12px solid;
-            border-image: linear-gradient(180deg, #ffaa55, #ff5500) 1;
-            border-left-style: solid;
-            border-left-color: #ffaa55;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border-left: 12px solid #ffaa55;
+            transition: all 0.3s;
+            animation: borderPulse 2s ease infinite;
         }
 
-        /* таблица данных о жире */
+        @keyframes borderPulse {
+            0%, 100% { border-left-color: #ffaa55; box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
+            50% { border-left-color: #ff6633; box-shadow: 0 20px 45px rgba(255,170,68,0.3); }
+        }
+
         .gradient-table {
             width: 100%;
             border-collapse: collapse;
@@ -195,25 +417,30 @@
             border-radius: 55px;
             overflow: hidden;
             margin: 50px 0;
+            animation: tableGlow 3s ease infinite;
         }
+
+        @keyframes tableGlow {
+            0%, 100% { box-shadow: 0 0 10px rgba(255,170,68,0.2); }
+            50% { box-shadow: 0 0 30px rgba(255,170,68,0.5); }
+        }
+
         th, td {
             padding: 18px 15px;
             text-align: left;
             border-bottom: 1px solid #ffaa5544;
+            transition: all 0.2s;
         }
+
+        tr:hover {
+            background: rgba(255,170,68,0.1);
+            transform: scale(1.01);
+        }
+
         th {
             background: linear-gradient(90deg, #ff8c42, #b45f2a);
             color: #110e06;
             font-size: 1.3rem;
-        }
-
-        /* кнопки перехода в футере */
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 60px;
         }
 
         .toast-notify {
@@ -221,14 +448,27 @@
             bottom: 25px;
             left: 50%;
             transform: translateX(-50%);
-            background: #1a150e;
+            background: linear-gradient(135deg, #1a150e, #2a2010);
             backdrop-filter: blur(20px);
-            padding: 12px 28px;
+            padding: 14px 32px;
             border-radius: 60px;
             border-left: 8px solid #ffaa44;
             font-weight: bold;
             z-index: 10000;
             pointer-events: none;
+            font-size: 1.1rem;
+            animation: toastPop 0.3s ease, toastFloat 2s ease-in-out infinite;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        @keyframes toastPop {
+            from { opacity: 0; transform: translateX(-50%) translateY(30px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+
+        @keyframes toastFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-5px); }
         }
 
         footer {
@@ -236,20 +476,44 @@
             margin-top: 70px;
             padding-top: 40px;
             border-top: 2px solid #ffaa55;
+            animation: footerGlow 3s ease infinite;
+        }
+
+        @keyframes footerGlow {
+            0%, 100% { border-top-color: #ffaa55; }
+            50% { border-top-color: #ff6633; box-shadow: 0 -5px 20px rgba(255,170,68,0.2); }
+        }
+
+        h2 {
+            background: linear-gradient(135deg, #ffdd99, #ffaa55, #ff6633);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: titleWave 2s ease-in-out infinite;
+        }
+
+        @keyframes titleWave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
         }
 
         @media (max-width: 750px) {
-            h1 { font-size: 2.8rem; }
+            h1 { font-size: 2.5rem; }
             .fat-container { padding: 20px; }
         }
     </style>
 </head>
 <body>
+
+<div id="floatingContainer"></div>
+<div id="dropContainer"></div>
+<div id="starContainer"></div>
+<div class="mouse-glow" id="mouseGlow"></div>
+
 <div class="fat-container">
-    <!-- ШАПКА С ГРАДИЕНТАМИ -->
     <div class="gradient-header">
-        <h1>🍔 ПОКОЙО ЖИР • ЭСТЕТИКА 🧈</h1>
-        <div class="sub-grad">ГАЛЕРЕЯ ЖИРНЫХ СУЩНОСТЕЙ • КУЛЬТУРА ЖИРА • ССЫЛКИ НА ЛУЧШИЕ БУРГЕРНЫЕ</div>
+        <h1>🍔 ПОКОЙО ЖИР • МЕГА ЭФФЕКТЫ 🧈</h1>
+        <div class="sub-grad">ГАЛЕРЕЯ ЖИРНЫХ СУЩНОСТЕЙ • 20+ ЭФФЕКТОВ • ЖИРНАЯ МАГИЯ</div>
         <div class="nav-buttons">
             <button class="gradient-btn"><a href="#gallery">📸 ФОТОГАЛЕРЕЯ</a></button>
             <button class="gradient-btn"><a href="#info">📖 ИНФОРМАЦИЯ</a></button>
@@ -259,25 +523,24 @@
         </div>
     </div>
 
-    <!-- ГАЛЕРЕЯ ЖИРНЫХ СУЩНОСТЕЙ (ФОТОГРАФИИ ЭМОДЗИ + ИНФО) -->
     <h2 id="gallery" style="font-size: 2.5rem; margin: 20px 0 10px;">📸 ГАЛЕРЕЯ ПОКОЙО И ЖИРОБАССОВ</h2>
-    <div class="gallery-grid">
+    <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 45px; margin: 70px 0;">
         <div class="fat-card">
             <div class="card-image">🐷🧈🍔</div>
             <h3>Покойо Жир-Туча</h3>
-            <div class="info-text">Вес: 1200 кг. Легендарная сущность, состоящая из чистого говяжьего жира и сырного соуса. Обитает в бургерных порталах.</div>
+            <div class="info-text">Вес: 1200 кг. Легендарная сущность из чистого говяжьего жира и сырного соуса.</div>
             <button class="card-btn"><a href="https://burgerkingrus.com/menu/whopper" target="_blank">🌀 ПРИЗВАТЬ ЖИР</a></button>
         </div>
         <div class="fat-card">
             <div class="card-image">🍔🐘🔥</div>
             <h3>Беляш-9000</h3>
-            <div class="info-text">Император бургерного жора. Съедает 350 бургеров за один присест. Его фотография — символ сытости.</div>
+            <div class="info-text">Император бургерного жора. Съедает 350 бургеров за один присест.</div>
             <button class="card-btn"><a href="https://burgerkingrus.com/" target="_blank">🍔 АЛТАРЬ БЕЛЯША</a></button>
         </div>
         <div class="fat-card">
             <div class="card-image">🍟🥓🧀</div>
             <h3>Картофельный Колосс</h3>
-            <div class="info-text">Титаническая гора картошки фри, пропитанная чесночным соусом. Культовая фигура жирной эстетики.</div>
+            <div class="info-text">Титаническая гора картошки фри, пропитанная чесночным соусом.</div>
             <button class="card-btn"><a href="https://www.mcdonalds.com/ru/ru-ru.html" target="_blank">🍟 ПОЧЕСТЬ ФРИ</a></button>
         </div>
         <div class="fat-card">
@@ -288,19 +551,15 @@
         </div>
     </div>
 
-    <!-- ИНФОРМАЦИОННАЯ СЕКЦИЯ (ЧИСТАЯ ИНФА) -->
     <div class="info-section" id="info">
         <h2 style="font-size: 2.2rem;">📖 ФИЛОСОФИЯ ПОКОЙО ЖИРА</h2>
-        <p style="margin-top: 20px; font-size: 1.2rem; line-height: 1.5;">Покойо Жир — это не просто калории. Это архетип абсолютной сытости, эстетика изобилия и глубокая связь с бургерной культурой. Жирные сущности существуют в параллельном измерении, и их можно призвать через ритуал поедания бургеров. На этом сайте собраны фотографии (визуальные образы) величайших покойо, их имена и легенды. Нажимая на кнопки, вы переходите на официальные сайты бургерных империй, чтобы воздать почести жиру. Информация основана на древних фолиантах жиробассов и современных исследованиях гастрономического экстаза.</p>
-        <p style="margin-top: 20px;">🔥 Факт: средний покойо жир весит от 800 до 3000 кг. Его сила пропорциональна количеству съеденных бургеров. Почитатели жира оставляют подношения в виде чизбургеров и картошки фри.</p>
+        <p style="margin-top: 20px; font-size: 1.2rem; line-height: 1.5;">Покойо Жир — архетип абсолютной сытости, эстетика изобилия и глубокая связь с бургерной культурой. Жирные сущности существуют в параллельном измерении, их можно призвать через ритуал поедания бургеров. На сайте — величайшие покойо, их имена и легенды. Нажимайте кнопки, чтобы воздать почести жиру на официальных сайтах бургерных империй!</p>
+        <p style="margin-top: 20px;">🔥 Факт: средний покойо жир весит от 800 до 3000 кг. Сила пропорциональна количеству съеденных бургеров.</p>
     </div>
 
-    <!-- ТАБЛИЦА ЖИРНЫХ РЕКОРДОВ (ИНФОРМАЦИЯ) -->
     <h2 style="font-size: 2rem;">🏆 РЕЙТИНГ ПОКОЙО ПО ВЕСУ</h2>
     <table class="gradient-table">
-        <thead>
-            <tr><th>Имя Покойо</th><th>Вес (кг)</th><th>Любимая еда</th><th>Ссылка на алтарь</th></tr>
-        </thead>
+        <thead><tr><th>Имя Покойо</th><th>Вес (кг)</th><th>Любимая еда</th><th>Алтарь</th></tr></thead>
         <tbody>
             <tr><td>Покойо Жир-Туча</td><td>1250 кг</td><td>Воппер с беконом</td><td><button class="gradient-btn" style="padding: 6px 15px;"><a href="https://burgerkingrus.com/menu/whopper" target="_blank">🍔 ПЕРЕЙТИ</a></button></td></tr>
             <tr><td>Беляш-9000</td><td>980 кг</td><td>Чизбургер</td><td><button class="gradient-btn" style="padding: 6px 15px;"><a href="https://burgerkingrus.com/" target="_blank">🍔 BK</a></button></td></tr>
@@ -309,68 +568,132 @@
         </tbody>
     </table>
 
-    <!-- ДОПОЛНИТЕЛЬНЫЙ БЛОК С КНОПКАМИ ПЕРЕХОДА НА РАЗНЫЕ ССЫЛКИ -->
-    <div style="background: linear-gradient(115deg, #1b160e, #0e0b06); border-radius: 65px; padding: 45px; margin: 55px 0; text-align: center;">
-        <h3 style="font-size: 2rem;">🌀 ПОЧТИТЬ ЖИР ЧЕРЕЗ ЛУЧШИЕ ССЫЛКИ 🌀</h3>
-        <div class="footer-links" style="margin-top: 30px;">
-            <button class="gradient-btn"><a href="https://www.whopper.ru/" target="_blank">🍔 ВОППЕР-РЕЙД</a></button>
-            <button class="gradient-btn"><a href="https://dodopizza.ru/" target="_blank">🍕 ДОДО ПИЦЦА</a></button>
-            <button class="gradient-btn"><a href="https://www.subway.com/ru-RU" target="_blank">🥪 САБВЕЙ ЖИР</a></button>
-            <button class="gradient-btn"><a href="https://www.tacobell.com/" target="_blank">🌮 ТАКО ЖИР</a></button>
-        </div>
-        <p style="margin-top: 35px;">Нажатие на любую кнопку перенаправляет на официальный сайт для заказа бургеров и воздания почестей Покойо Жиру.</p>
-    </div>
-
     <footer>
-        <p>🍖 ПОКОЙО ЖИР • САЙТ С ЧИСТОЙ ИНФОРМАЦИЕЙ, ФОТОГРАФИЯМИ (ОБРАЗАМИ) И КНОПКАМИ-ПЕРЕХОДАМИ 🍖</p>
-        <p>Все градиенты, анимации и сложные CSS эффекты — дань уважения жирной эстетике. 2026</p>
-        <div class="footer-links" style="margin-top: 25px;">
-            <button class="gradient-btn"><a href="https://www.instagram.com/" target="_blank">📸 ИНСТАГРАМ ЖИРА</a></button>
-            <button class="gradient-btn"><a href="https://www.youtube.com/" target="_blank">🎥 ЮТУБ ПОКОЙО</a></button>
-        </div>
+        <p>🍖 ПОКОЙО ЖИР • 20+ ЖИРНЫХ ЭФФЕКТОВ • ГРАДИЕНТЫ • АНИМАЦИИ 🍖</p>
+        <p>Масляный след, капли жира, бургер-конфетти, вибрация кнопок и многое другое! 2026</p>
     </footer>
 </div>
 
 <script>
-    // Добавляем небольшие уведомления при нажатии на кнопки (чисто информационные, не игровые)
+    // Плавающие бургеры (с вращением)
+    const burgers = ['🍔', '🍟', '🍗', '🧈', '🌮', '🥪', '🍕', '🥓'];
+    for(let i = 0; i < 20; i++) {
+        let div = document.createElement('div');
+        div.className = 'floating-burger';
+        div.textContent = burgers[Math.floor(Math.random() * burgers.length)];
+        div.style.left = Math.random() * 100 + '%';
+        div.style.animationDuration = 6 + Math.random() * 15 + 's';
+        div.style.animationDelay = Math.random() * 10 + 's';
+        div.style.fontSize = 2 + Math.random() * 4 + 'rem';
+        document.getElementById('floatingContainer').appendChild(div);
+    }
+
+    // Капли жира
+    for(let i = 0; i < 25; i++) {
+        let drop = document.createElement('div');
+        drop.className = 'fat-drop';
+        drop.style.left = Math.random() * 100 + '%';
+        drop.style.width = drop.style.height = 4 + Math.random() * 12 + 'px';
+        drop.style.animationDuration = 2 + Math.random() * 5 + 's';
+        drop.style.animationDelay = Math.random() * 10 + 's';
+        document.getElementById('dropContainer').appendChild(drop);
+    }
+
+    // Мерцающие звёзды жира
+    const stars = ['⭐', '🌟', '✨', '💫', '⭐'];
+    for(let i = 0; i < 40; i++) {
+        let star = document.createElement('div');
+        star.className = 'fat-star';
+        star.textContent = stars[Math.floor(Math.random() * stars.length)];
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 3 + 's';
+        star.style.fontSize = 0.8 + Math.random() * 1.5 + 'rem';
+        document.getElementById('starContainer').appendChild(star);
+    }
+
+    // Плавающие калории
+    const calories = ['888', '1337', '9999', '2500', '5000', '10000', '🍔🔥', '🧈💪'];
+    setInterval(() => {
+        let cal = document.createElement('div');
+        cal.className = 'calorie-number';
+        cal.textContent = calories[Math.floor(Math.random() * calories.length)] + ' ккал';
+        cal.style.left = Math.random() * 90 + 5 + '%';
+        cal.style.bottom = '0px';
+        document.body.appendChild(cal);
+        setTimeout(() => cal.remove(), 5000);
+    }, 800);
+
+    // Жирный след за мышкой
+    let mouseTimeout;
+    document.addEventListener('mousemove', (e) => {
+        let trail = document.createElement('div');
+        trail.className = 'grease-trail';
+        trail.style.left = (e.clientX - 7) + 'px';
+        trail.style.top = (e.clientY - 7) + 'px';
+        document.body.appendChild(trail);
+        setTimeout(() => trail.remove(), 800);
+    });
+
+    // Градиент за мышкой
+    const mouseGlow = document.getElementById('mouseGlow');
+    document.addEventListener('mousemove', (e) => {
+        mouseGlow.style.left = (e.clientX - 150) + 'px';
+        mouseGlow.style.top = (e.clientY - 150) + 'px';
+    });
+
+    // Брызги + конфетти при клике
+    document.body.addEventListener('click', (e) => {
+        // Брызги
+        for(let i = 0; i < 12; i++) {
+            let splash = document.createElement('div');
+            splash.className = 'splash';
+            splash.style.left = (e.clientX + (Math.random() - 0.5) * 60) + 'px';
+            splash.style.top = (e.clientY + (Math.random() - 0.5) * 60) + 'px';
+            document.body.appendChild(splash);
+            setTimeout(() => splash.remove(), 600);
+        }
+        
+        // Конфетти из бургеров
+        for(let i = 0; i < 8; i++) {
+            let conf = document.createElement('div');
+            conf.className = 'burger-confetti';
+            conf.textContent = burgers[Math.floor(Math.random() * burgers.length)];
+            conf.style.left = (e.clientX + (Math.random() - 0.5) * 100) + 'px';
+            conf.style.top = e.clientY + 'px';
+            conf.style.animationDuration = 0.8 + Math.random() * 0.7 + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 1500);
+        }
+    });
+
+    // Уведомления с эмодзи
     const allButtons = document.querySelectorAll('.gradient-btn, .card-btn');
-    function showInfoToast(message) {
-        let existingToast = document.querySelector('.toast-notify');
-        if(existingToast) existingToast.remove();
+    function showFatToast(message) {
+        let old = document.querySelector('.toast-notify');
+        if(old) old.remove();
         let toast = document.createElement('div');
         toast.className = 'toast-notify';
-        toast.innerText = message;
+        toast.innerHTML = '🧈🔥 ' + message + ' 🍔✨';
         document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 2000);
+        setTimeout(() => toast.remove(), 2200);
     }
 
     allButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            // если внутри есть ссылка с переходом, показываем уведомление перед переходом
             let link = btn.querySelector('a');
-            if(link && link.href && !link.hasAttribute('data-no-toast')) {
+            if(link && link.href) {
                 e.preventDefault();
-                showInfoToast(`🌀 Переход: ${link.innerText} — почтите жир!`);
+                showFatToast(`🍔 ЖИРНЫЙ ПЕРЕХОД: ${link.innerText || 'почтите покойо!'}`);
                 setTimeout(() => {
                     window.open(link.href, link.target || '_self');
-                }, 300);
-            } else if(link) {
-                // стандартное поведение
-                showInfoToast(`🌀 Вы почтили жир через кнопку!`);
+                }, 250);
             }
         });
     });
 
-    // Дополнительная фишка: градиентный эффект при наведении на карточки (уже в CSS)
-    console.log("%c🍔 ПОКОЙО ЖИР • САЙТ С САМЫМИ СЛОЖНЫМИ ГРАДИЕНТАМИ И КНОПКАМИ-ПЕРЕХОДАМИ", "color: #ffaa55; font-size: 18px; background: #0a0a0a; padding: 12px; border-radius: 40px;");
-    console.log("Чисто информационный сайт. Фотографии в виде эмодзи-образов, каждая кнопка ведёт на реальные сайты бургерных.");
+    console.log('%c🍔🔥 ПОКОЙО ЖИР — МЕГА ЭФФЕКТЫ АКТИВИРОВАНЫ! 20+ ЖИРНЫХ АНИМАЦИЙ 🔥🍔', 'color: #ffaa55; font-size: 18px; font-weight: bold; text-shadow: 2px 2px 4px #000;');
 </script>
 
-<!-- 
-    ************** ДОСТИГНУТЫЙ ОБЪЁМ: БОЛЕЕ 600+ СТРОК СЛОЖНОГО HTML/CSS/JS **************
-    САЙТ НЕ СОДЕРЖИТ ИГР — ТОЛЬКО ИНФОРМАЦИЯ, ГРАДИЕНТЫ, ФОТОГРАФИИ (ВИЗУАЛЬНЫЕ ОБРАЗЫ) 
-    И КНОПКИ ДЛЯ ПЕРЕХОДА ПО ССЫЛКАМ (BURGER KING, KFC, MCDONALDS, SUBWAY, TACO BELL И ДР.)
-    САМЫЕ СЛОЖНЫЕ ГРАДИЕНТЫ: РАДИАЛЬНЫЕ, ЛИНЕЙНЫЕ, АНИМИРОВАННЫЕ, С НАЛОЖЕНИЕМ.
--->
 </body>
 </html>
